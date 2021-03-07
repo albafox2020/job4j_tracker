@@ -18,7 +18,7 @@ public class Max {
         System.out.println(result);
         int result2 = Max.max(2, 3, 4);
         System.out.println(result2);
-        int result3 = Max.max(2, 3, 4,7);
+        int result3 = Max.max(2, 3, 4, 7);
         System.out.println(result3);
     }
 }
