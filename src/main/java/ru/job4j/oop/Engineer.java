@@ -15,9 +15,11 @@ public class Engineer extends Profession {
     }
 
     public void level() {
+
     }
 
     public void workHours() {
+
     }
 
     public static void main(String[] args) {
