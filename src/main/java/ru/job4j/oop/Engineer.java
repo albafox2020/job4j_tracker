@@ -1,16 +1,32 @@
 package ru.job4j.oop;
 
+import jdk.jfr.Enabled;
+
 public class Engineer extends Profession {
     private int experience;
 
-    public Engineer(String name, String surname, String education, int birthday) {
+    public Engineer(String name, String surname, String education, int birthday, int experience) {
         super(name, surname, education, birthday);
         this.experience = experience;
     }
 
-    public String level() {
+    public Engineer(String name, String surname, String education, int birthday) {
+        super(name, surname, education, birthday);
     }
 
-    public int workHours() {
+    public void level() {
+    }
+
+    public void workHours() {
+    }
+
+    public static void main(String[] args) {
+        Engineer petya = new Engineer("Petya", "Ivanov", "higher", 1900, 10);
+
+        petya.level();
+
+        Profession pr = new Engineer("Ivan", "Ivanov", "higher", 1930, 10);
+
+        pr.getBirthday();
     }
 }

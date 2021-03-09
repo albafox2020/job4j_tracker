@@ -28,4 +28,8 @@ public class Profession {
     public int getBirthday() {
         return birthday;
     }
+
+    public static void main(String[] args) {
+        Profession prof = new Profession("Andrey", "Ivan", "higher", 1990);
+    }
 }
