@@ -8,6 +8,10 @@ public class Item {
     private String name;
     private LocalDateTime created = LocalDateTime.now();
 
+    public Item(String name) {
+        this.name = name;
+    }
+
     public void getCreated() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String data = created.format(formatter);
