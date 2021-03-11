@@ -5,9 +5,12 @@ public class StartUI {
         Tracker trackers = new Tracker();
         Item item1 = new Item("Test 1");
         Item item2 = new Item("Test 2");
+        Item item3 = new Item("toString test");
         trackers.add(item1);
         trackers.add(item2);
+        trackers.add(item3);
         System.out.println(trackers.findById(1).getName());
         System.out.println(trackers.findById(2).getName());
+        System.out.println(item3);
     }
 }
