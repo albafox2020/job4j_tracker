@@ -53,6 +53,8 @@ public class  Tracker {
             items[indexReplace] = item;
             item.setId(id);
             return true;
+        } else {
+            System.out.println("Error: id not found.");
         }
         return false;
     }
@@ -65,6 +67,8 @@ public class  Tracker {
             items[size - 1] = null;
             size--;
             return true;
+        } else {
+            System.out.println("Error: id not found.");
         }
         return false;
     }
