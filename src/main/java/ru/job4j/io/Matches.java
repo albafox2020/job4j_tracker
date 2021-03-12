@@ -3,6 +3,7 @@ package ru.job4j.io;
 import java.util.Scanner;
 
 public class Matches {
+    @SuppressWarnings("checkstyle:ParenPad")
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Игра 11.");
@@ -12,8 +13,8 @@ public class Matches {
             String player = turn ? "Первый игрок" : "Второй игрок";
             System.out.println(player + " введите число от 1 до 3:");
             int matches = Integer.parseInt(input.nextLine());
-            if (matches > 3) {
-                System.out.println("Вы ввели число больше 3, введите заново число спичек");
+            while (matches > 3 || matches < 1) {
+                System.out.println("Вы ввели число больше 3 или меньше 1, введите заново число спичек");
                 matches = Integer.parseInt(input.nextLine());
             }
             turn = !turn;
