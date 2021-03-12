@@ -16,11 +16,9 @@ public class MagicBall {
             case (2):
                 System.out.println("Нет");
                 break;
-            case (3):
+            default:
                 System.out.println("Может быть");
                 break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + answer);
         }
     }
 }
