@@ -46,8 +46,8 @@ public class StartUI {
                 int id = Integer.parseInt(scanner.nextLine());
                 Item news = new Item(scanner.nextLine());
                 Item temp = tracker.findById(id);
-                if (tracker.findById(id) != null) {
-                    System.out.println(tracker.findById(id).getName());
+                if (temp != null) {
+                    System.out.println(temp);
                 } else {
                     System.out.println("Application with this id was not found" + id);
                 }
@@ -56,7 +56,9 @@ public class StartUI {
                 String name = scanner.nextLine();
                 Item[] item = tracker.findByName(name);
                 if (item.length > 0) {
-                    System.out.println("Successfully");
+                    for (int i = 0; i < item.length; i++) {
+                        System.out.println(item);
+                    }
                 } else {
                     System.out.println("Application with this name was not found" + name);
                 }
