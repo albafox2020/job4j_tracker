@@ -16,7 +16,7 @@ public class StartUI {
         }
     }
 
-    public static void replaceItemItem(Input input, Tracker tracker) {
+    public static void replaceItem(Input input, Tracker tracker) {
         System.out.println("=== Edit item ====");
         int id = Integer.parseInt(input.askStr("Enter id for correction: "));
         String name = input.askStr("Enter name item: ");
@@ -69,7 +69,7 @@ public class StartUI {
             } else if (select == 1) {
                 StartUI.showAllItems(tracker);
             } else if (select == 2) {
-                StartUI.replaceItemItem(input, tracker);
+                StartUI.replaceItem(input, tracker);
             } else if (select == 3) {
                 StartUI.deteleItem(input, tracker);
             } else if (select == 4) {
