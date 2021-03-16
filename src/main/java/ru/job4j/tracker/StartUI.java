@@ -39,7 +39,6 @@ public class StartUI {
 
     public static void findById(Input input, Tracker tracker) {
         int id = Integer.parseInt(input.askStr("Enter id for search: "));
-        Item news = new Item(input.askStr(" "));
         Item temp = tracker.findById(id);
         if (temp != null) {
             System.out.println(temp);
@@ -49,13 +48,14 @@ public class StartUI {
     }
 
     public static void findByName(Input input, Tracker tracker) {
-        int id = Integer.parseInt(input.askStr("Enter id for search: "));
-        Item news = new Item(input.askStr(" "));
-        Item temp = tracker.findById(id);
-        if (temp != null) {
-            System.out.println(temp);
+        String name = input.askStr("Enter id for search: ");
+        Item[] item = tracker.findByName(name);
+        if (item.length > 0) {
+            for (int i = 0; i < item.length; i++) {
+                System.out.println(item[i]);
+            }
         } else {
-            System.out.println("Application with this id was not found" + id);
+            System.out.println("Application with this name was not found" + name);
         }
     }
 
