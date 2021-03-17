@@ -4,7 +4,6 @@ public class Fact {
     public static void main(String[] args) {
         Fact fact = new Fact();
         System.out.println(fact.calc(3));
-        System.out.println(fact.calc(1));
     }
 
     public static int calc(int n) {
