@@ -76,4 +76,54 @@ public class StartUITest {
                         "0. Exit" + System.lineSeparator()
         ));
     }
+
+    @Test
+    public void whenFindAllAction() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Test"));
+        Input in = new StubInput(
+                new String[] {"0", "1"}
+        );
+        UserAction[] actions = {
+                new ShowAction(out),
+                new Exit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findAll()[0].getName(), is("Test"));
+    }
+
+    @Test
+    public void whenFindByNameAction() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Test"));
+        Input in = new StubInput(
+                new String[] {"0", "Test" ,"1"}
+        );
+        UserAction[] actions = {
+                new FindByNameAction(out),
+                new Exit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        Item[] result = tracker.findByName(item.getName());
+        assertThat(result[0].getName(), is(item.getName()));
+    }
+
+    @Test
+    public void whenFindById() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Test"));
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(item.getId()) ,"1"}
+        );
+        UserAction[] actions = {
+                new FindByIdAction(out),
+                new Exit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        Item[] result = tracker.findByName(item.getName());
+        assertThat(result[0].getId(), is(item.getId()));
+    }
 }
