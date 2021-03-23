@@ -81,7 +81,7 @@ public class StartUITest {
     public void whenFindAllAction() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        tracker.add(new Item("Test"));
+        Item item = tracker.add(new Item("Test"));
         Input in = new StubInput(
                 new String[] {"0", "1"}
         );
@@ -104,7 +104,7 @@ public class StartUITest {
     public void whenFindByNameAction() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        tracker.add(new Item("Test"));
+        Item item = tracker.add(new Item("Test"));
         Input in = new StubInput(
                 new String[] {"0", "Test", "1"}
         );
@@ -127,7 +127,7 @@ public class StartUITest {
     public void whenFindById() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        tracker.add(new Item("Test"));
+        Item item = tracker.add(new Item("Test"));
         Input in = new StubInput(
                 new String[] {"0", "2", "1"}
         );
