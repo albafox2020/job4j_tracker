@@ -93,7 +93,7 @@ public class StartUITest {
         assertThat(out.toString(), is("Menu." + System.lineSeparator() +
                 "0. Show all items" + System.lineSeparator() +
                 "1. Exit" + System.lineSeparator() +
-                "Item{id=" + item.getId() + ", name=" + "'" + item.getName() + "'" + "}" + System.lineSeparator() +
+                item + System.lineSeparator() +
                 "Menu." + System.lineSeparator() +
                 "0. Show all items" + System.lineSeparator() +
                 "1. Exit" + System.lineSeparator()
@@ -116,7 +116,7 @@ public class StartUITest {
         assertThat(out.toString(), is("Menu." + System.lineSeparator() +
                 "0. Find by name Action" + System.lineSeparator() +
                 "1. Exit" + System.lineSeparator() +
-                "Item{id=" + item.getId() + ", name=" + "'" + item.getName() + "'" + "}" + System.lineSeparator() +
+                item + System.lineSeparator() +
                 "Menu." + System.lineSeparator() +
                 "0. Find by name Action" + System.lineSeparator() +
                 "1. Exit" + System.lineSeparator()
@@ -125,21 +125,18 @@ public class StartUITest {
 
     @Test
     public void whenFindById() {
-        Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Test"));
-        Input in = new StubInput(
-                new String[] {"0", "2", "1"}
-        );
-        UserAction[] actions = {
-                new FindByIdAction(out),
-                new Exit(out)
-        };
-        new StartUI(out).init(in, tracker, actions);
+        Item item = new Item("Item name");
+        String[] answers = new String[]{"0", "1", "1"};
+        Input input = new StubInput(answers);
+        tracker.add(item);
+        Output out = new StubOutput();
+        UserAction[] userActions = {new FindByIdAction(out), new Exit(out)};
+        new StartUI(out).init(input, tracker, userActions);
         assertThat(out.toString(), is("Menu." + System.lineSeparator() +
                 "0. Find by id Action" + System.lineSeparator() +
                 "1. Exit" + System.lineSeparator() +
-                "Application with this id was not found2" + System.lineSeparator() +
+                item.toString() + System.lineSeparator() +
                 "Menu." + System.lineSeparator() +
                 "0. Find by id Action" + System.lineSeparator() +
                 "1. Exit" + System.lineSeparator()
