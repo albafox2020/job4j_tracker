@@ -81,7 +81,7 @@ public class StartUITest {
     public void whenFindAllAction() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Test"));
+        Item item =  tracker.add(new Item("Test"));
         Input in = new StubInput(
                 new String[] {"0", "1"}
         );
@@ -93,7 +93,7 @@ public class StartUITest {
         assertThat(out.toString(), is("Menu." + System.lineSeparator() +
                 "0. Show all items" + System.lineSeparator() +
                 "1. Exit" + System.lineSeparator() +
-                "Item{id=1, name='Test'}" + System.lineSeparator() +
+                "Item{id=" + item.getId() + ", name=" + "'" + item.getName() + "'" + "}" + System.lineSeparator() +
                 "Menu." + System.lineSeparator() +
                 "0. Show all items" + System.lineSeparator() +
                 "1. Exit" + System.lineSeparator()
@@ -116,7 +116,7 @@ public class StartUITest {
         assertThat(out.toString(), is("Menu." + System.lineSeparator() +
                 "0. Find by name Action" + System.lineSeparator() +
                 "1. Exit" + System.lineSeparator() +
-                "Item{id=1, name='Test'}" + System.lineSeparator() +
+                "Item{id=" + item.getId() + ", name=" + "'" + item.getName() + "'" + "}" + System.lineSeparator() +
                 "Menu." + System.lineSeparator() +
                 "0. Find by name Action" + System.lineSeparator() +
                 "1. Exit" + System.lineSeparator()
