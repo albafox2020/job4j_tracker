@@ -16,4 +16,5 @@ public class JobSorter {
         Collections.sort(jobs, new JobDescByName().thenComparing(new JobDescByPriority()));
         System.out.println(jobs);
     }
+
 }

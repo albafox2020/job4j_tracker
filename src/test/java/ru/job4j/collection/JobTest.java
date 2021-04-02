@@ -59,7 +59,7 @@ public class JobTest {
     }
 
     @Test
-    public void whenIncrByPriority() {
+    public void whenIncrByPriority1() {
         Comparator<Job> cmpName = new JobIncrByPriority();
         int rsl = cmpName.compare(
                 new Job("Konstantin", 1),
@@ -69,7 +69,7 @@ public class JobTest {
     }
 
     @Test
-    public void whenDescByPriority() {
+    public void whenDescByPriority1() {
         Comparator<Job> cmpName = new JobDescByName();
         int rsl = cmpName.compare(
                 new Job("Konstantin", 1),

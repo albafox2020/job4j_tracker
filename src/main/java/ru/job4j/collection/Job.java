@@ -26,4 +26,5 @@ public class Job implements Comparable<Job> {
     public int compareTo(Job another) {
         return Integer.compare(priority, another.priority);
     }
+
 }
