@@ -1,7 +1,5 @@
 package ru.job4j.collection;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
 import java.util.Comparator;
 import static org.hamcrest.Matchers.lessThan;
@@ -13,10 +11,10 @@ public class JobTest {
         Comparator<Job> cmpNamePriority =
                 new JobDescByName().thenComparing(new JobDescByPriority());
         int rsl = cmpNamePriority.compare(
-                new Job("Impl task", 0),
-                new Job("Fix bug", 1)
+                new Job("Impl task", 1),
+                new Job("Impl task", 2)
         );
-        assertThat(rsl, lessThan(0));
+        assertThat(rsl, lessThan(2));
     }
 
     @Test
