@@ -79,28 +79,6 @@ public class StartUITest {
     }
 
     @Test
-    public void whenFindAllAction() {
-        Output out = new StubOutput();
-        Tracker tracker = new Tracker();
-        Item item =  tracker.add(new Item("Test"));
-        Input in = new StubInput(
-                new String[] {"0", "1"}
-        );
-        ArrayList<UserAction> actions = new ArrayList<>();
-        actions.add(new ShowAllItemsIncrease(out));
-        actions.add(new Exit(out));
-        new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("Menu." + System.lineSeparator()
-                + "0. Show all items by increase" + System.lineSeparator()
-                + "1. Exit" + System.lineSeparator()
-                + item + System.lineSeparator()
-                + "Menu." + System.lineSeparator()
-                + "0. Show all items by increase" + System.lineSeparator()
-                + "1. Exit" + System.lineSeparator()
-        ));
-    }
-
-    @Test
     public void whenFindByNameAction() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
@@ -162,35 +140,5 @@ public class StartUITest {
                                 + "0. Exit%n"
                 )
         ));
-    }
-
-    @Test
-    public void whenSortIncrease() {
-        Tracker tracker = new Tracker();
-        Item item1 = new Item("C");
-        Item item2 = new Item("A");
-        Item item3 = new Item("B");
-        tracker.add(item1);
-        tracker.add(item2);
-        tracker.add(item3);
-        List<Item> items = tracker.findAll();
-        List<Item> expected  = Arrays.asList(item2, item3, item1);
-        Collections.sort(items, new SortByNameIncrease());
-        assertThat(items, is(expected));
-    }
-
-    @Test
-    public void whenSortWaning() {
-        Tracker tracker = new Tracker();
-        Item item1 = new Item("C");
-        Item item2 = new Item("B");
-        Item item3 = new Item("A");
-        tracker.add(item1);
-        tracker.add(item2);
-        tracker.add(item3);
-        List<Item> items = tracker.findAll();
-        List<Item> expected  = Arrays.asList(item3, item2, item1);
-        Collections.sort(items, new SortByNameWaning());
-        assertThat(items, is(expected));
     }
 }
