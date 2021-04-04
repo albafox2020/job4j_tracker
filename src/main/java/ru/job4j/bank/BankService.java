@@ -5,12 +5,34 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author albafox
+ * @version 1.0
+ * Class for service accounts of clients
+ */
+
 public class BankService {
+
+    /**
+     * This object contain data
+     */
+
     private Map<User, List<Account>> users = new HashMap<>();
+
+    /**
+     * Method create a new user
+     * @param user accept user name
+     */
 
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<Account>());
     }
+
+    /**
+     *Creating new account
+     * @param passport unique passport
+     * @param account account in database
+     */
 
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
