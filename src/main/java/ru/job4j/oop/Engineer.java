@@ -1,7 +1,5 @@
 package ru.job4j.oop;
 
-import jdk.jfr.Enabled;
-
 public class Engineer extends Profession {
     private int experience;
 
