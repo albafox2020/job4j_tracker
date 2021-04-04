@@ -3,6 +3,9 @@ package ru.job4j.tracker;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -70,8 +73,8 @@ public class StartUITest {
         actions.add(new Exit(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Exit" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. Exit" + System.lineSeparator()
         ));
     }
 
@@ -84,16 +87,16 @@ public class StartUITest {
                 new String[] {"0", "1"}
         );
         ArrayList<UserAction> actions = new ArrayList<>();
-        actions.add(new ShowAction(out));
+        actions.add(new ShowAllItemsIncrease(out));
         actions.add(new Exit(out));
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("Menu." + System.lineSeparator() +
-                "0. Show all items" + System.lineSeparator() +
-                "1. Exit" + System.lineSeparator() +
-                item + System.lineSeparator() +
-                "Menu." + System.lineSeparator() +
-                "0. Show all items" + System.lineSeparator() +
-                "1. Exit" + System.lineSeparator()
+        assertThat(out.toString(), is("Menu." + System.lineSeparator()
+                + "0. Show all items by increase" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()
+                + item + System.lineSeparator()
+                + "Menu." + System.lineSeparator()
+                + "0. Show all items by increase" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()
         ));
     }
 
@@ -109,13 +112,13 @@ public class StartUITest {
         actions.add(new FindByNameAction(out));
         actions.add(new Exit(out));
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("Menu." + System.lineSeparator() +
-                "0. Find by name Action" + System.lineSeparator() +
-                "1. Exit" + System.lineSeparator() +
-                item + System.lineSeparator() +
-                "Menu." + System.lineSeparator() +
-                "0. Find by name Action" + System.lineSeparator() +
-                "1. Exit" + System.lineSeparator()
+        assertThat(out.toString(), is("Menu." + System.lineSeparator()
+                + "0. Find by name Action" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()
+                + item + System.lineSeparator()
+                + "Menu." + System.lineSeparator()
+                + "0. Find by name Action" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()
         ));
     }
 
@@ -130,13 +133,13 @@ public class StartUITest {
         userActions.add(new FindByIdAction(out));
         userActions.add(new Exit(out));
         new StartUI(out).init(input, tracker, userActions);
-        assertThat(out.toString(), is("Menu." + System.lineSeparator() +
-                "0. Find by id Action" + System.lineSeparator() +
-                "1. Exit" + System.lineSeparator() +
-                item.toString() + System.lineSeparator() +
-                "Menu." + System.lineSeparator() +
-                "0. Find by id Action" + System.lineSeparator() +
-                "1. Exit" + System.lineSeparator()
+        assertThat(out.toString(), is("Menu." + System.lineSeparator()
+                + "0. Find by id Action" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()
+                + item.toString() + System.lineSeparator()
+                + "Menu." + System.lineSeparator()
+                + "0. Find by id Action" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()
         ));
     }
 
@@ -144,7 +147,7 @@ public class StartUITest {
     public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] { "1", "0" }
+                new String[] {"1", "0"}
         );
         Tracker tracker = new Tracker();
         ArrayList<UserAction> actions = new ArrayList<>();
@@ -159,5 +162,35 @@ public class StartUITest {
                                 + "0. Exit%n"
                 )
         ));
+    }
+
+    @Test
+    public void whenSortIncrease() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("C");
+        Item item2 = new Item("A");
+        Item item3 = new Item("B");
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.add(item3);
+        List<Item> items = tracker.findAll();
+        List<Item> expected  = Arrays.asList(item2, item3, item1);
+        Collections.sort(items, new SortByNameIncrease());
+        assertThat(items, is(expected));
+    }
+
+    @Test
+    public void whenSortWaning() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("C");
+        Item item2 = new Item("B");
+        Item item3 = new Item("A");
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.add(item3);
+        List<Item> items = tracker.findAll();
+        List<Item> expected  = Arrays.asList(item3, item2, item1);
+        Collections.sort(items, new SortByNameWaning());
+        assertThat(items, is(expected));
     }
 }

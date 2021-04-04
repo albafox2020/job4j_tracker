@@ -6,7 +6,6 @@ public class Dentist extends Doctor {
         super(name, surname, education, birthday, ardinatur);
     }
 
-
     public static void main(String[] args) {
         Doctor dent = new Dentist("Oleg", "Petrov", "higher", 1990, true);
         dent.diagnosis();

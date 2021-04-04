@@ -14,7 +14,8 @@ public class Matches {
             System.out.println(player + " введите число от 1 до 3:");
             int matches = Integer.parseInt(input.nextLine());
             while (matches > 3 || matches < 1) {
-                System.out.println("Вы ввели число больше 3 или меньше 1, введите заново число спичек");
+                System.out.println("Вы ввели число больше 3 или меньше 1"
+                        + ", введите заново число спичек");
                 matches = Integer.parseInt(input.nextLine());
             }
             turn = !turn;

@@ -7,6 +7,8 @@ public class College {
         student.setGroup("202-BK");
         student.setRecDate(01 / 2020 / 9);
 
-        System.out.println("FIO: " + student.getFio() + ", Group: " + student.getGroup() + ", Rec data: " + student.getRecDate());
+        System.out.println("FIO: " + student.getFio()
+                + ", Group: " + student.getGroup() + ", Rec data: "
+                + student.getRecDate());
     }
 }

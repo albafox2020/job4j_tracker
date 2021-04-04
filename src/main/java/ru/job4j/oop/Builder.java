@@ -1,7 +1,7 @@
 package ru.job4j.oop;
 
 public class Builder extends Engineer {
-    int level;
+    private int level;
 
     public Builder(String name, String surname, String education, int birthday, int level) {
         super(name, surname, education, birthday);

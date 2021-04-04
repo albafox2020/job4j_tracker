@@ -15,9 +15,11 @@ public class Battery {
     public static void main(String[] args) {
         Battery first = new Battery(10);
         Battery second = new Battery(5);
-        System.out.println("The charge of the first battery was : " + first.load + ". second : " + second.load);
+        System.out.println("The charge of the first battery was : "
+                + first.load + ". second : " + second.load);
         first.exchange(second);
-        System.out.println("Now Charge of the first battery : " + first.load + ". second : " + second.load);
+        System.out.println("Now Charge of the first battery : "
+                + first.load + ". second : " + second.load);
 
     }
 }

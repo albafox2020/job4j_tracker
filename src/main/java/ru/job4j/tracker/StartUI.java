@@ -38,7 +38,8 @@ public class StartUI {
         List<UserAction> actions = new ArrayList<>();
         actions.add(new CreateAction(output));
         actions.add(new ReplaceAction(output));
-        actions.add(new ShowAction(output));
+        actions.add(new ShowAllItemsIncrease(output));
+        actions.add(new ShowAllItemsWaning(output));
         actions.add(new DeleteAction(output));
         actions.add(new FindByIdAction(output));
         actions.add(new FindByNameAction(output));

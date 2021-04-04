@@ -15,7 +15,7 @@ public class PointTest {
     }
 
     @Test
-    public void when42to63then2_23() {
+    public void when42to63then2is23() {
         double expected = 2.23;
         Point a = new Point(4, 2);
         Point b = new Point(6, 3);
@@ -24,7 +24,7 @@ public class PointTest {
     }
 
     @Test
-    public void when11to22then1_41() {
+    public void when11to22then1is41() {
         double expected = 1.41;
         Point a = new Point(1, 1);
         Point b = new Point(2, 2);
@@ -42,7 +42,7 @@ public class PointTest {
     }
 
     @Test
-    public void when22to44then4_24() {
+    public void when22to44then4is24() {
         double expected = 4.24;
         Point a = new Point(2, 2);
         Point b = new Point(5, 5);
@@ -51,7 +51,7 @@ public class PointTest {
     }
 
     @Test
-    public void when11to33then2_82() {
+    public void when11to33then2is82() {
         double expected = 2.82;
         Point a = new Point(1, 1);
         Point b = new Point(3, 3);
@@ -62,8 +62,8 @@ public class PointTest {
     @Test
     public void when00to00to00then0() {
         int expected = 0;
-        Point a = new Point(0, 0,0);
-        Point b = new Point(0, 0,0);
+        Point a = new Point(0, 0, 0);
+        Point b = new Point(0, 0, 0);
         double out = a.distance3d(b);
         Assert.assertEquals(expected, out, 0.01);
     }
@@ -71,8 +71,8 @@ public class PointTest {
     @Test
     public void when022to044then0() {
         double expected = 1.73;
-        Point a = new Point(2, 2,2);
-        Point b = new Point(3, 3,3);
+        Point a = new Point(2, 2, 2);
+        Point b = new Point(3, 3, 3);
         double out = a.distance3d(b);
         Assert.assertEquals(expected, out, 0.01);
     }

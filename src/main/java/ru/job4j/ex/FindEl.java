@@ -14,6 +14,11 @@ public class FindEl {
         return rsl;
     }
 
+    public static boolean sent(String value, String[] abuses) throws ElementAbuseException {
+        /* if contains throw ElementAbuseException */
+        return true;
+    }
+
     public static void main(String[] args) {
         String[] value = {"abc", "cba"};
         try {
@@ -21,5 +26,8 @@ public class FindEl {
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    private static class ElementAbuseException extends Exception {
     }
 }
