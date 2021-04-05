@@ -3,6 +3,7 @@ package ru.job4j.collection;
 import org.junit.Test;
 import java.util.Comparator;
 import static org.hamcrest.Matchers.lessThan;
+import static org.hamcrest.number.OrderingComparison.greaterThan;
 import static org.junit.Assert.assertThat;
 
 public class JobTest {
@@ -14,7 +15,7 @@ public class JobTest {
                 new Job("Impl task", 1),
                 new Job("Impl task", 2)
         );
-        assertThat(rsl, lessThan(2));
+        assertThat(rsl, greaterThan(0));
     }
 
     @Test
