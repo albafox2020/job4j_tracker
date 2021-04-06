@@ -4,24 +4,40 @@ import org.junit.Test;
 import ru.job4j.tracker.Item;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
-import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class SortItemWTest {
 
     @Test
-    public void whenHaveListThenSortedAtLengthNameWaning() {
-        Item itemthree = new Item("AAA");
-        Item itemone = new Item("A");
-        Item itemtwo = new Item("AA");
+    public void whenSortByNameWaning() {
         List<Item> items = new ArrayList<>();
-        items.add(itemone);
-        items.add(itemtwo);
-        items.add(itemthree);
-        SortItemW sortW = new SortItemW();
-        List<Item> result = sortW.sortByNameWaning(items);
-        assertThat(result.get(0), is(itemthree));
+        items.add(new Item(3, "L-Test"));
+        items.add(new Item(2, "T-Test"));
+        items.add(new Item(1, "K-Test"));
+        Comparator<Item> comparator = new SortItemW().thenComparing(new SortById());
+        items.sort(comparator);
+        List<Item> expected = new ArrayList<>();
+        expected.add(new Item(2, "T-Test"));
+        expected.add(new Item(3, "L-Test"));
+        expected.add(new Item(1, "K-Test"));
+        assertEquals(expected.toString(), items.toString());
+    }
+
+    @Test
+    public void whenSortByNameWhenDoubleNameWaning() {
+        List<Item> items = new ArrayList<>();
+        items.add(new Item(3, "L-Test"));
+        items.add(new Item(2, "T-Test"));
+        items.add(new Item(1, "T-Test"));
+        Comparator<Item> comparator = new SortItemW().thenComparing(new SortByIdW());
+        items.sort(comparator);
+        List<Item> expected = new ArrayList<>();
+        expected.add(new Item(2, "T-Test"));
+        expected.add(new Item(1, "T-Test"));
+        expected.add(new Item(3, "L-Test"));
+        assertEquals(expected.toString(), items.toString());
     }
 }

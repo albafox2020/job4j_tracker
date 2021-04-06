@@ -1,18 +1,10 @@
 package ru.job4j.sort;
 
 import ru.job4j.tracker.Item;
-
 import java.util.Comparator;
-import java.util.List;
 
-public class SortItemW {
-public List<Item> sortByNameWaning(List<Item> list) {
-        list.sort(new Comparator<Item>() {
-            @Override
-            public int compare(Item o1, Item o2) {
-                return Integer.compare(o2.getName().length(), o1.getName().length());
-            }
-        });
-        return list;
+public class SortItemW implements Comparator<Item> {
+    public int compare(Item o1, Item o2) {
+        return o2.getName().compareTo(o1.getName());
     }
 }
