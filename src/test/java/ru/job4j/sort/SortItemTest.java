@@ -23,7 +23,7 @@ public class SortItemTest {
         expected.add(new Item(2, "A"));
         expected.add(new Item(1, "B"));
         expected.add(new Item(3, "C"));
-        assertEquals(expected.toString(), items.toString());
+        assertEquals(expected, items);
     }
 
     @Test
@@ -38,6 +38,6 @@ public class SortItemTest {
         expected.add(new Item(1, "K-Test"));
         expected.add(new Item(3, "L-Test"));
         expected.add(new Item(2, "T-Test"));
-        assertEquals(expected.toString(), items.toString());
+        assertEquals(expected, items);
     }
 }
