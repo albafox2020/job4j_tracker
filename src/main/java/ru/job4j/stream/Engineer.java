@@ -11,13 +11,15 @@ public class Engineer {
 
     private String address;
 
-    private int telephone;
+    private String telephone;
 
     static class Builder {
         private String name;
         private String surname;
         private byte age;
         private boolean experience;
+        private String address;
+        private String telephone;
 
         Engineer.Builder buildName(String name) {
             this.name = name;
@@ -39,12 +41,24 @@ public class Engineer {
             return this;
         }
 
+        Engineer.Builder buildAddress(String address) {
+            this.address = address;
+            return this;
+        }
+
+        Engineer.Builder buildTelephone(String telephone) {
+            this.telephone = telephone;
+            return this;
+        }
+
         Engineer build() {
             Engineer engineer = new Engineer();
             engineer.name = name;
             engineer.surname = surname;
             engineer.age = age;
             engineer.experience = experience;
+            engineer.address = address;
+            engineer.telephone = telephone;
             return engineer;
         }
     }
@@ -54,6 +68,8 @@ public class Engineer {
                 .buildSurname("Batalov")
                 .buildAge((byte) 37)
                 .buildExperience(true)
+                .buildAddress("Ivanovo")
+                .buildTelephone("89055192004")
                 .build();
         System.out.println(engineer);
     }
@@ -64,7 +80,9 @@ public class Engineer {
                 + "name='" + name + '\''
                 + ", surname='" + surname + '\''
                 + ", age='" + age + '\''
-                + ", experience=" + experience
+                + ", experience=" + experience + '\''
+                + ", address='" + address + '\''
+                + ", telephone='" + telephone
                 + '}';
     }
 }
