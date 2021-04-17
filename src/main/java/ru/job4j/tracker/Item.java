@@ -4,12 +4,17 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-public class Item implements Comparable<Item> {
+public class Item {
     private int id;
     private String name;
     private LocalDateTime created = LocalDateTime.now();
 
     public Item(String name) {
+        this.name = name;
+    }
+
+    public Item(int id, String name) {
+        this.id = id;
         this.name = name;
     }
 
@@ -43,7 +48,6 @@ public class Item implements Comparable<Item> {
                 + '}';
     }
 
-    @Override
     public int compareTo(Item another) {
         return Integer.compare(id, another.id);
     }

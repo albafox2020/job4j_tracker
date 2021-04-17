@@ -2,10 +2,10 @@ package ru.job4j.tracker;
 
 import java.util.List;
 
-public class ShowAllItemsIncrease implements UserAction {
+public class ShowAllItems implements UserAction {
     private final Output out;
 
-    public ShowAllItemsIncrease(Output out) {
+    public ShowAllItems(Output out) {
         this.out = out;
     }
 
@@ -17,7 +17,6 @@ public class ShowAllItemsIncrease implements UserAction {
     @Override
     public boolean execute(Input input, Tracker tracker) {
         List<Item> temp = tracker.findAll();
-        temp.sort(new SortByNameIncrease());
         for (Item item : temp) {
             out.println(item);
         }
