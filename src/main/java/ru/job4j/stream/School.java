@@ -10,8 +10,7 @@ public class School {
         return students.stream()
                 .filter(predicate)
                 .collect(Collectors.toMap(
-                        e -> e.getSurname(),
-                        e -> e.getScore()
+                        Student::getSurname,
                         e -> e
                 ));
     }
